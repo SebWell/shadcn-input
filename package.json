@@ -1,26 +1,22 @@
 {
-  "name": "shadcn-input",
-  "version": "1.0.0",
-  "description": "Shadcn/UI input component for Weweb",
-  "main": "src/input.vue",
-  "weweb": {
-    "componentPath": "./src/input.vue"
-  },
-  "scripts": {
-    "serve": "webpack serve --mode development",
-    "build": "webpack --mode production"
-  },
-  "keywords": [
-    "weweb",
-    "shadcn",
-    "ui",
-    "input",
-    "vue",
-    "component"
-  ],
-  "author": "Shadcn/UI for Weweb",
-  "license": "MIT",
-  "dependencies": {
-    "vue": "^3.3.4"
-  }
+    "name": "shadcn-input",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SebWell/shadcn-input"
+    },
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "build": "weweb build",
+        "serve": "weweb serve",
+        "create-config": "weweb config"
+    },
+    "devDependencies": {
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@weweb/cli": "latest",
+        "eslint": "^7.7.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-vue": "7.0.0-beta.4",
+        "prettier": "^2.1.2"
+    }
 }
