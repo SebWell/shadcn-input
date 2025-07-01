@@ -5,11 +5,9 @@
         "url": "https://github.com/SebWell/shadcn-input"
     },
     "version": "1.0.0",
-    "license": "MIT",
     "scripts": {
         "build": "weweb build",
-        "serve": "weweb serve",
-        "create-config": "weweb config"
+        "serve": "weweb serve"
     },
     "devDependencies": {
         "@vue/eslint-config-prettier": "^6.0.0",
@@ -18,5 +16,6 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-vue": "7.0.0-beta.4",
         "prettier": "^2.1.2"
-    }
+    },
+    "license": "MIT"
 }
