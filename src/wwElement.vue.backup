@@ -1,10 +1,10 @@
 <template>
   <input
     v-model="inputValue"
-    :type="type || 'text'"
-    :placeholder="placeholder"
-    :disabled="disabled"
-    :readonly="readonly"
+    :type="content.type || 'text'"
+    :placeholder="content.placeholder"
+    :disabled="content.disabled"
+    :readonly="content.readonly"
     :class="inputClasses"
     @input="handleInput"
     @change="handleChange"
@@ -19,20 +19,32 @@ import { computed, ref, watch } from 'vue'
 export default {
   name: 'WewebInput',
   props: {
-        // Individual props will be auto-generated based on the component type
-        // This is a placeholder that will be manually refined per component
-    },
+    content: {
+      type: Object,
+      required: true,
+      default: () => ({
+        type: 'text',
+        placeholder: '',
+        disabled: false,
+        readonly: false,
+        value: '',
+        size: 'default',
+        variant: 'default',
+        customClasses: ''
+      })
+    }
+  },
   emits: ['update:content', 'input', 'change', 'focus', 'blur'],
   setup(props, { emit }) {
-    const inputValue = ref(props.value || '')
+    const inputValue = ref(props.content.value || '')
     
-    watch(() => props.value, (newValue) => {
+    watch(() => props.content.value, (newValue) => {
       inputValue.value = newValue || ''
     })
     
     const inputClasses = computed(() => {
-      const size = props.size || 'default'
-      const variant = props.variant || 'default'
+      const size = props.content.size || 'default'
+      const variant = props.content.variant || 'default'
       
       const classes = [
         'input-base',
@@ -40,12 +52,12 @@ export default {
         `input-variant-${variant}`
       ]
       
-      if (props.disabled) {
+      if (props.content.disabled) {
         classes.push('input-disabled')
       }
       
-      if (props.customClasses) {
-        classes.push(props.customClasses)
+      if (props.content.customClasses) {
+        classes.push(props.content.customClasses)
       }
       
       return classes.join(' ')
